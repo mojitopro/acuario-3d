@@ -1,10 +1,10 @@
 # Acuario 3D
 
-Un acuario 3D interactivo que corre entero en el navegador. Son dos archivos y nada más: `Acuario 3D.html` y `three.min.js`. No necesita instalación, servidor ni conexión a internet.
+Un acuario 3D interactivo en un solo archivo. Es todo `Acuario 3D.html`: abrís ese archivo con el navegador y funciona. No necesita instalación, servidor, conexión a internet ni nada más.
 
 ## Cómo usarlo
 
-Abrí `Acuario 3D.html` con el `three.min.js` en la misma carpeta. Nada más.
+Doble toque sobre `Acuario 3D.html` (o "abrir con" el navegador) y listo.
 
 - **Tocar el agua** asusta a los peces: sale un anillo de onda y se dispersan.
 - **Arrastrar** gira la cámara alrededor del tanque.
@@ -15,7 +15,7 @@ Abrí `Acuario 3D.html` con el `three.min.js` en la misma carpeta. Nada más.
 - **Noche / Día** cambia la iluminación del acuario.
 - **Foto** descarga una imagen del acuario.
 
-Los botones de arriba (noche y foto) y la cantidad de peces quedan guardados, así que al volver se abre como lo dejaste.
+El modo noche y la cantidad de peces quedan guardados, así que al volver se abre como lo dejaste.
 
 ## Qué hay adentro
 
@@ -25,7 +25,7 @@ Hay ocho variedades con colores, tamaños y velocidades distintas.
 
 ## Notas técnicas
 
-- Hecho con **three.js r128**, guardado localmente en `three.min.js` para que funcione sin internet.
+- Hecho con **three.js r128**, incrustado dentro del propio HTML para que el archivo funcione solo.
 - Los peces se dibujan con **InstancedMesh**, así que aunque haya más de cien el costo de dibujo sigue siendo bajo.
 - El comportamiento de bando usa una **rejilla espacial**: cada pez solo mira a los vecinos cercanos, no a todos.
 - El bucle de animación **no reserva memoria en cada frame**, que es lo que suele producir tirones.
@@ -35,12 +35,10 @@ Hay ocho variedades con colores, tamaños y velocidades distintas.
 
 ## Para tocar el código
 
-Está pensado para ser claro y no depender de herramientas de compilación.
+El archivo tiene el three.js incrustado arriba (un bloque largo de una sola línea); el código del acuario está en el último `<script>`, al final del archivo. Está pensado para ser claro y no depender de herramientas de compilación.
 
 - Cantidad máxima de peces: `MAXFISH`.
 - Cantidad inicial y según el equipo: `DEFAULT_FISH` y `lowEnd`.
 - Tamaño del tanque: `BX`, `BY`, `BZ`.
 - Especies y su peso: el arreglo `SP`.
 - Paletas de iluminación: `PAL`.
-
-`three.min.js` está fijado en la r128. Si lo actualizás, revisá que sigan funcionando `InstancedMesh`, `Points` y `Raycaster`.
